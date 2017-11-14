@@ -1,0 +1,20 @@
+.description {
+    position: absolute;
+    padding-right: 40px;
+    margin: 0% 0 0 40%;
+    text-align: justify;
+}
+.image {
+    height: 232px;
+    padding: 10px;
+    position: fixed;
+    width: 27%;
+}
+.Productcard {
+    position: absolute;
+    height: 368px;
+    width: 92%;
+    padding-left: 50px;
+    box-shadow: 0 0 13px #0000007d;
+    border-radius: 12px;
+}

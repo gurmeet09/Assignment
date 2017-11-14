@@ -1,0 +1,18 @@
+<body>
+    <div class="container">
+      <div *ngFor="let item of seasons">
+        <div class="col-sm-4 Productcard">
+          <div>
+              <h2>{{item.season_name}}</h2>
+          </div>
+          <img width="100%" src="{{item.season_image}}" alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">
+                <h3><a><input readonly style="border:none" (click)="Episode(name.value)" ng-model="name" value="{{item.season_name}}" #name  ></a></h3>
+            </div>
+          </div>
+          <h6>{{item.season_data}}</h6>
+        </div>
+      </div>
+    </div>
+  </body>

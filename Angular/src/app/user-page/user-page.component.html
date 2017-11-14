@@ -1,0 +1,59 @@
+<body>
+    <img style="width:100%;position:fixed" src="../assets/background.jpg">
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">NetFlix</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <form class="navbar-form navbar-left">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>  
+            </ul>       
+      </div>
+    </nav>
+    
+    <div class="container header">
+        <div>
+            <img class="image" src="../assets/logo.png">
+        </div>
+    </div>
+  
+      <div class="row">
+          <div *ngFor="let items of series">
+            <div class="col-md-3">
+              <div class="groove1">
+                {{items.series_image}}<br>Series Id:{{items.series_id}}<br> Series Name: {{items.series_name}}<br>
+                Series Description: {{items.series_description}}<br>
+              </div>
+            </div>
+          </div>
+  
+        <div class="row">
+          <div class="col-sm-4 card">
+            <h3 style="margin: 0 0 0 29%;padding: 10px 0 13px 0;"><strong><a href="/showuser">Series</a></strong></h3>
+            <img src="../assets/batman.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+          </div>
+  
+          <div class="col-sm-4 card">
+            <h3 style="margin: 0 0 0 29%;padding: 10px 0 13px 0;"><strong>Shows</strong></h3>
+            <img src="../assets/TV-Shows.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+          </div>
+  
+          <div class="col-sm-4 card">
+            <h3 style="margin: 0 0 0 29%;padding: 10px 0 13px 0;"><strong>Movies</strong></h3>
+            <img src="../assets/movies.jpeg" class="img-circle person" alt="Random Name" width="255" height="255">
+          </div>
+          
+        </div>
+    
+      </div>
+      </body>

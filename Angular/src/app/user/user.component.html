@@ -1,0 +1,19 @@
+
+<div >
+   
+     <br>
+      <div *ngFor="let item of series; let i = index">
+          <div class="col-sm-4">
+       <div class="Productcard">
+        <div>
+            <h2><a><input readonly style="border:none" (click)="seasons(name.value)" ng-model="name" value="{{item.series_name}}" #name  ></a></h2>
+            <!-- <button (click)="seasons(name.value)"></button> -->
+        </div>
+        <img src="{{item.series_image}}" class="img"/>
+        
+        
+        <br>
+      </div>
+      </div>
+    </div>
+</div>

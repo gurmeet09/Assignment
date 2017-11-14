@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6" style="padding-left: 109px;
+    margin-left: -40px;">
+      <input type="text" class="form-control input-sm" placeholder="Search" [(ngModel)]="searchitem1">
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+   
+
+      <button class="btn btn-info" (click)="SearchSeries()">
+        <span class="glyphicon glyphicon-search"></span>SearchSeries
+  </button>
+  <div *ngIf="GetSearchSeries">
+    <table style="width:100%">
+      <tr>
+        <th>Series Name</th>
+        <th>image</th>
+        
+        <th>Series Description</th>
+      </tr>
+      <tr>
+        <td>{{GetSearchSeries.series_name}}</td>
+        <td><img src="{{GetSearchSeries.series_image}}"class="image"></td>
+        <td>{{GetSearchSeries.series_description}}</td>
+       
+      </tr>
+    </table>
+  </div>

@@ -1,0 +1,174 @@
+<body>
+  <img style="width:100%;position:fixed" src="../assets/background.jpg">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">NetFlix</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href=""><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+      </ul>  
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>  
+          </ul>       
+          <button class="btn btn-danger navbar-btn class"  (click)="btnClick();">Add User</button>
+          <form class="navbar-form navbar-left">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+        </div> 
+  </nav>
+  
+  <div class="container header">
+      <div>
+          <img class="image" src="../assets/logo.png">
+      </div>
+  </div>
+
+    <div class="row">
+        <div *ngFor="let items of series">
+          <div class="col-md-3">
+            <div class="groove1">
+              {{items.series_image}}<br>Series Id:{{items.series_id}}<br> Series Name: {{items.series_name}}<br>
+              Series Description: {{items.series_description}}<br>
+            </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-sm-4 card">
+          <h3 style="margin: 0 0 0 29%;padding: 10px 0 13px 0;"><strong><a href="/series">Series</a></strong></h3>
+          <img src="../assets/batman.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+          <button style="margin: 18px 0 0 29%;" (click)="flagSeries()" class="btn btn-info">AddSeries</button> 
+        </div>
+
+        <div class="col-sm-4 card">
+          <h3 style="margin: 0 0 0 29%;padding: 10px 0 13px 0;"><strong>Shows</strong></h3>
+          <img src="../assets/TV-Shows.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+          <button style="margin: 18px 0 0 29%;" (click)="seriestoggle()" class="btn btn-info">AddShows</button>
+        </div>
+
+        <div class="col-sm-4 card">
+          <h3 style="margin: 0 0 0 29%;padding: 10px 0 13px 0;"><strong>Movies</strong></h3>
+          <img src="../assets/movies.jpeg" class="img-circle person" alt="Random Name" width="255" height="255">
+          <button style="margin: 18px 0 0 29%;" (click)="seriestoggle()" class="btn btn-info">AddMovies</button>
+        </div>
+        
+      </div>
+  
+    </div>
+      <div class="formStyle" *ngIf="flag1 && !flag2">
+        <form #form1="ngForm" (ngSubmit)="addseries()">
+          <div class="form-group">
+            <label>Series ID</label>
+            <input required type="text" name="series_id" [(ngModel)]="NewSeries.series_id" #seriesid="ngModel" placeholder="enter id of series"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Series Name</label>
+            <input required type="text" name="series_name" [(ngModel)]="NewSeries.series_name" #seriesname="ngModel" placeholder="enter name of series"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Series Description</label>
+            <input required type="text" name="series_description" [(ngModel)]="NewSeries.series_description" #seriesdescription="ngModel" placeholder="enter story for series"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="image">image</label>
+            <input type="file" name="series_image" accept="image/*" (change)="changeListener($event)" />
+          </div>
+          <div style="padding-top:7%">
+          <button style="margin: -5% 48px 0 0;" type="submit" class="btn btn-success pull-right" (click)="flagShows()">submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="formStyle" *ngIf="flag2 && !flag3">
+        <form #form2="ngForm" (ngSubmit)="addseasons()">
+          <div class="form-group">
+            <label>Series ID</label>
+            <input required type="text" name="series_id" [(ngModel)]="NewSeries1.series_id" #seriesid="ngModel" placeholder="enter id of series"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Season ID</label>
+            <input required type="text" name="season_id" [(ngModel)]="NewSeries1.season_id" #seasonid="ngModel" placeholder="enter id of season"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Season Name</label>
+            <input required type="text" name="season_name" [(ngModel)]="NewSeries1.season_name" #seasonname="ngModel" placeholder="enter name of season"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Series Description</label>
+            <input required type="text" name="season_data" [(ngModel)]="NewSeries1.season_data" #seasondescription="ngModel" placeholder="enter story for season"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="season_image">image</label>
+            <input type="file" name="season_image" accept="season_image/*" (change)="changeListener($event)" />
+          </div>
+          <div>
+          <label>starts_on</label>
+          <input required type="date" name="starts_on" [(ngModel)]="NewSeries1.starts_on" #seasonstartson="ngModel"
+            class="form-control">
+        </div>
+        <div>
+          <label>ends_on</label>
+          <input required type="date" name="ends_on" [(ngModel)]="NewSeries1.ends_on" #seasonendson="ngModel"
+            class="form-control">
+        </div>
+        <div style="padding-top:7%">
+          <button type="submit" style="margin: -5% 48px 0 0;" class="btn btn-success pull-right" (click)="flagEpisodes()">submit</button>
+        </div>
+        </form>
+      </div>
+
+      <div class="formStyle" *ngIf="flag3">
+        <form #form3="ngForm" (ngSubmit)="addepisodes()">
+          <div class="form-group">
+            <label>Series ID</label>
+            <input required type="text" name="series_id" [(ngModel)]="NewSeries2.series_id" #seriesid="ngModel" placeholder="enter id of series"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Season ID</label>
+            <input required type="text" name="season_id" [(ngModel)]="NewSeries2.season_id" #seasonid="ngModel" placeholder="enter id of season"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Episode ID</label>
+            <input required type="text" name="episode_id" [(ngModel)]="NewSeries2.episode_id" #episodeid="ngModel" placeholder="enter id of episode"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Episode Name</label>
+            <input required type="text" name="episode_name" [(ngModel)]="NewSeries2.episode_name" #episodename="ngModel" placeholder="enter name of episode"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Episode Description</label>
+            <input required type="text" name="episode_data" [(ngModel)]="NewSeries2.episode_data" #episodedescription="ngModel" placeholder="enter story for episode"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="episode_image">image</label>
+            <input type="file" name="episode_image" accept="episode_image/*" (change)="changeListener($event)" />
+          </div>
+        <div style="padding-top:7%">
+          <button type="submit" class="btn btn-success pull-right" style="margin: -5% 48px 0 0;" (click)="flagEpisodes()">submit</button>
+        </div>
+        </form>
+        
+      </div>
+  <br><br><br><br>
+  
+</body>

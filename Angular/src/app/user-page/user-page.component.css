@@ -1,0 +1,23 @@
+
+.card {
+    padding: 0 0 0 142px;
+    box-shadow: 0 0 6px #00000085;
+    border-radius: 26px;
+    background-color: #e9e9e9e0;
+    width: 27%;
+    padding-left: 4%;
+    margin: 2% 1% 0 4%;
+    padding-bottom: 9px;
+}
+.header {
+    box-shadow: 0 0 9px #da4646a3;
+    border-radius: 12px;
+    padding: 5px;
+    position: relative;
+    background-color: #d38c8b;
+}
+.image {
+    border-radius: 10px;
+    width: 100%;
+    height: 128px;
+}
